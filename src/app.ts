@@ -7,10 +7,8 @@ import { environment } from '@/config/environment';
 import { connectDB } from '@/config/database';
 import logger from '@/utils/logger';
 import { authMiddleware, AuthRequest } from '@/middlewares/auth.middleware';
-import { userTypeDefs } from '@/graphql/schema/user.schema';
-import { userResolvers } from '@/graphql/resolvers/user.resolver';
 import { Response, NextFunction } from 'express';
-import { UserRole, IUser } from '@/models/user.model';
+import { UserRole } from '@/models/user.model';
 import { AppError } from '@/utils/error';
 import { authDirectiveTransformer } from '@/graphql/directives/auth.directive';
 import { makeExecutableSchema } from '@graphql-tools/schema';
@@ -37,7 +35,7 @@ async function startServer() {
     resolvers: loadResolvers()
   });
 
-  // Direktifleri uygula
+  // Apply directives
   schema = authDirectiveTransformer(schema);
 
   const server = new ApolloServer({
@@ -78,12 +76,12 @@ async function startServer() {
 
       const operationName = req.body.operationName;
       
-      // Login her zaman erişilebilir
+      // Login is always accessible
       if (operationName === 'login') {
         return next();
       }
 
-      // Register sadece token olmayanlara açık
+      // Register only for unauthenticated users
       if (operationName === 'register') {
         const token = req.headers.authorization?.split(' ')[1];
         if (token) {
@@ -92,7 +90,7 @@ async function startServer() {
         return next();
       }
       
-      // Diğer tüm işlemler için auth kontrolü
+      // For other operations, auth check
       return authMiddleware(req, res, next);
     },
     expressMiddleware(server, {

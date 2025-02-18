@@ -1,6 +1,5 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { print } from 'graphql';
 
 export const loadSchemas = () => {
   const schemaPath = join(__dirname, '../graphql/schema');
