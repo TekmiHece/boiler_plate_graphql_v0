@@ -1,3 +1,8 @@
+/* 
+  This file contains the response types and functions for the API.
+  If you want to use REST API, you can use this file for standardizing the responses.
+*/
+
 export interface ApiResponse<T> {
   success: boolean;
   data?: T;

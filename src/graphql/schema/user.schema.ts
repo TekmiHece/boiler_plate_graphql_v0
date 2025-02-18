@@ -41,13 +41,13 @@ export const userTypeDefs = `#graphql
     email: String
   }
 
-  type Query {
+  extend type Query {
     me: User! @auth
     users: [User!]! @requiresRole(role: admin)
     userById(id: ID!): User @requiresRole(role: admin)
   }
 
-  type Mutation {
+  extend type Mutation {
     register(input: RegisterInput!): AuthResponse!
     login(input: LoginInput!): AuthResponse!
     updateUser(id: ID!, input: UpdateUserInput!): User! @requiresRole(role: admin)

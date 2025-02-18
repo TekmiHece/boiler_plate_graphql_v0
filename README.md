@@ -47,17 +47,17 @@
       ...Other resolvers
     - 📁 `directives/` - Directives
       - 📄 `auth.directive.ts` - Authentication directive for graphql
-    - 📁 `models/` - Models
-      - 📄 `user.model.ts` - User model
-    - 📁 `utils/` - Utils
-      - 📄 `error.ts` - Error handling utility
-      - 📄 `logger.ts` - Logger utility
-      - 📄 `schema-loader.ts` - Schema loading utility
+  - 📁 `models/` - Models
+    - 📄 `user.model.ts` - User model
+    - 📄 `post.model.ts` - Post model
+  - 📁 `utils/` - Utils
+    - 📄 `response.ts` - Response utility
+    - 📄 `error.ts` - Error handling utility
+    - 📄 `logger.ts` - Logger utility
   - 📁 `middlewares/` - Middlewares
     - 📄 `auth.middleware.ts` - Authentication middleware
   - 📄 `app.ts` - Main application file
   - 📄 `tsconfig.json` - TypeScript configuration
-      
       
 
 ## Authentication Flow
