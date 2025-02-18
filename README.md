@@ -56,8 +56,8 @@
     - 📄 `logger.ts` - Logger utility
   - 📁 `middlewares/` - Middlewares
     - 📄 `auth.middleware.ts` - Authentication middleware
-  - 📄 `app.ts` - Main application file
-  - 📄 `tsconfig.json` - TypeScript configuration
+- 📄 `app.ts` - Main application file
+- 📄 `tsconfig.json` - TypeScript configuration
       
 
 ## Authentication Flow
